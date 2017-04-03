@@ -13,3 +13,5 @@ Now there is some terms and conditions that maybe helpful and should read:
 [4]if you have faced any kind of problems while using our tool you can inform us to our E_mail : 
 	devoohk2016@gmail.com
 [5]last thing thanks for reading this and have a nice day :D
+
+[x]Usage : python the_watcher.py
