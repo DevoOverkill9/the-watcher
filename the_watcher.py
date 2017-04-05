@@ -81,24 +81,24 @@ exit = "exit"
 
 w = sleep(0.5)
 
-os.system("apt-get install driftnet")
-os.system("apt-get install sslstrip")
+os.system("apt install driftnet")
+os.system("apt install sslstrip")
 os.system ("clear")
 #Terms & Conditions>
 try:
 	os.system(clear)
 	import terms
 except ImportError:
-	print ("{0}[{1}x{0}]{2}Error:Some files is NOT FOUND!")
-	os.system(exit)
+	print ("{0}[{1}x{0}]{2}Error:Some files is NOT FOUND!").format(WHITE , RED , RED)
+	os.system("exit")	
 
 #banner starting../
 try:
 	os.system(clear)
 	import banner
 except ImportError:
-	print ("{0}[{1}x{0}]{2}Error:Some files is NOT FOUND!")
-	os.system(exit)
+	print ("{0}[{1}x{0}]{2}Error:Some files is NOT FOUND!").format(WHITE , RED , RED)
+	os.system("exit")
 
 
 
@@ -129,8 +129,9 @@ print ("{0}[{1}+{0}]{2}OK!").format(WHITE , OKGREEN , OKGREEN)
 try :
 	import nmap
 except ImportError :
-	print ("\n{}[x]Python-nmap can't install").format(RED) 
+	print ("\n{}[x]If you a got an error :").format(RED) 
 	print("\n>Try : pip install python-nmap")
+	print("\nThen relaunch the tool!")
 	os.system(exit)
 
 try:
