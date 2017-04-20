@@ -8,9 +8,9 @@ Now there is some terms and conditions that maybe helpful and should read:
 [2]if you found that you can't use this tool you can see our official vedio tutorial on youtube
 
 [3]we are not responsible for any bad using of this tool
-  cause this tool has been made for pentesters and educational purposes only.
+  because this tool has been made for pentesters and educational purposes only.
 
-[4]if you have faced any kind of problems while using our tool you can inform us to our E_mail : 
+[4]if you have faced any kind of any problem while using our tool you can inform us to our E_mail : 
 	devoohk2016@gmail.com
 [5]last thing thanks for reading this and have a nice day :D
 
