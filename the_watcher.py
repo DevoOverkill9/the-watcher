@@ -123,7 +123,7 @@ try:
 	sys.stdout.write("\n")
 except KeyboardInterrupt:
 	print("{0}[{1}x{0}]{2}Loading Interrupted!").format(Cafe , RED , RED)
-	os.system(exit)
+	sys.exit(0)
 print ("{0}[{1}+{0}]{2}OK!").format(WHITE , OKGREEN , OKGREEN)
 #nmap can't install Error
 try :
@@ -132,7 +132,7 @@ except ImportError :
 	print ("\n{}[x]If you a got an error :").format(RED) 
 	print("\n>Try : pip install python-nmap")
 	print("\nThen relaunch the tool!")
-	os.system(exit)
+	sys.exit(0)
 
 try:
 	print """
@@ -149,14 +149,14 @@ try:
 		sleep(0.5)
 		print ("\n{0}[{1}+{0}]{2}Redirecting traffic... ").format(WHITE , RED , Cafe)
 		sleep(1.2)
-		os.system(flush)
-		os.system(flush_nat)
-		os.system (traffic_on)
+		#os.system(flush)
+		#os.system(flush_nat)
+		#os.system (traffic_on)
 		
 		print ("\n{0}[{1}+{0}]{2}Directing traffic to port 8080 ... ").format(WHITE , RED , Cafe)
 		sleep(2.2)
 		os.system (traffic_redirect)
-		os.system (traffic_redirect2)
+		#os.system (traffic_redirect2)
 		print ("\n{0}[{1}+{0}]{1}Done").format(WHITE , OKGREEN)
 		
 		sleep(0.5)
