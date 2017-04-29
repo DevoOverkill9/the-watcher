@@ -39,6 +39,6 @@ Now we have to wait for the victim to browse websites...
 
 See! that wasn't so hard! now you have the victim without doing any efforts.
 
-if you liked that we will happy to rate this tool to encourge me for making additional options and more.
+if you liked that we will be happy to rate this tool to encourge us for making additional options and more.
 
 # Enjoy
