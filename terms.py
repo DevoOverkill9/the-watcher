@@ -31,13 +31,13 @@ Now there is some terms and conditions that maybe helpful and should read:
 [1]you can make some edits on this script but you can make us know first we will be 
    thanked if u do this :D
 
-[3]we are not responsible for any bad using of this tool
+[2]we are not responsible for any bad using of this tool
   cause this tool has been made for pentration testers and for educational purposes only.
 
-[4]if you have faced any kind of problems while using this tool just inform us in issue department on github 
+[3]if you have faced any kind of problems while using this tool just inform us in issue department on github 
   here: https://github.com/DevoOverkill9/the-watcher/issues
 
-[5]last thing thanks for reading this and have a nice day :D
+[4]last thing thanks for reading this and have a nice day :D
 """.format(BLUE , OKGREEN)
 
 print("\n{0}>{1}Do you accept these terms & conditions? {2}({3}y{4}/{5}n{2}) {0}:").format(WHITE , WARNING , WHITE , GREEN , WHITE ,WARNING)
