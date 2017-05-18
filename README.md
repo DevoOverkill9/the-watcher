@@ -26,7 +26,7 @@ Now there is some terms and conditions that maybe helpful and should read:
  ```
  or:
  ```bash
- pytohn the_watcher.py
+ python the_watcher.py
  ```
 
 ![Tool Banner](http://oi66.tinypic.com/mmdelx.jpg)
