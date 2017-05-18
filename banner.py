@@ -20,7 +20,7 @@ purple     ="\033[0;35m"
 
 
 print"""
-					     {0}Welcome to the sniffing tool {3}Version {2}1.0
+					     {0}Welcome to the sniffing tool {3}Version {2}2.0
  
       {1}M""""""""M {2}dP                   {1}M""MMM""MMM""M {2}           dP            dP                         
 {1}Mmmm  mmmM {2}88                   {1}M  MMM  MMM  M {2}          88            88                         
@@ -34,6 +34,6 @@ print"""
 {1}>>{2}Coded & Developed by : {3}David Younan{2}[{1}DevoOverkill9{2}]
 				
 {2}[{1}*{2}]{3}Visit {4}:{2}https://github.com/DevoOverkill9/the-watcher {3}For Updates!
-
+	
 	""".format(YELLOW , RED , Cafe , BLUE , WHITE)
 
