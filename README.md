@@ -29,29 +29,29 @@ Now there is some terms and conditions that maybe helpful and should read:
  python the_watcher.py
  ```
 
-![Tool Banner](http://oi66.tinypic.com/mmdelx.jpg)
+![Tool Banner](http://oi64.tinypic.com/dy148.jpg)
 
 We give you an option to see the available targets on your network and available interfaces.
 
-![Targets and Interfaces](http://oi64.tinypic.com/2vkg8rc.jpg)
+![Targets and Interfaces](http://oi63.tinypic.com/1fzu6x.jpg)
 
 
- After choosing your target the tool will arpspoof the network and will try to decrypt the SSL encryption with sslstrip.
+ After choosing your target the tool will shows the available attacking options.
 
 Now you have to select which attack you want to use against your target , Just type the number :)
 
 
-![Arpspoofing](http://oi64.tinypic.com/vy408z.jpg)
+![Attacks](http://oi64.tinypic.com/2h3v9ev.jpg)
 
-Here i have choosed to sniff Images and Websites which is the most powerful attacks.
+Here i have choosed some available options .. you can choose which attacks to launch.
 
-![Watching Network](http://oi64.tinypic.com/30tgpc8.jpg)
+Now you have to wait for the victim to browse websites...
 
-Now we have to wait for the victim to browse websites...
-
-![Sniffing](http://oi68.tinypic.com/1b23m.jpg)
+![Sniffing](http://oi65.tinypic.com/3149js8.jpg)
 
 See! that wasn't so hard! now you have the victim without doing any efforts.
+#You are a hacker now ;)
+![hackerman](http://oi66.tinypic.com/2hevyoy.jpg)
 
 if you liked that we will be happy to rate this tool to encourge us for making additional options and more.
 
