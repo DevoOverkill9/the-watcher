@@ -90,11 +90,11 @@ exit = "exit"
 
 w = sleep(0.5)
 
-os.system("sudo apt install driftnet")
-os.system("sudo apt install sslstrip")
-os.system("sudo apt install bettercap")
-os.system("sudo apt install hping3")
-os.system("sudo apt install python-pip")
+os.system("sudo apt -y install driftnet")
+os.system("sudo apt -y install sslstrip")
+os.system("sudo apt -y install bettercap")
+os.system("sudo apt -y install hping3")
+os.system("sudo apt -y install python-pip")
 os.system ("clear")
 
 #Terms & Conditions>
