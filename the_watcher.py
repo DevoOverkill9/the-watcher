@@ -94,6 +94,7 @@ os.system("sudo apt install driftnet")
 os.system("sudo apt install sslstrip")
 os.system("sudo apt install bettercap")
 os.system("sudo apt install hping3")
+os.system("sudo apt install python-pip")
 os.system ("clear")
 
 #Terms & Conditions>
