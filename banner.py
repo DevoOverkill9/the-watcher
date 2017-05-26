@@ -20,7 +20,7 @@ purple     ="\033[0;35m"
 
 
 print"""
-	   {0}Welcome to the sniffing tool {3}Version {2}3.0
+	   {0}Welcome to the sniffing tool {3}Version {2}3.1
  
  _____  _             __    __        _         _                 
 /__   \| |__    ___  / / /\ \ \ __ _ | |_  ___ | |__    ___  _ __ 
