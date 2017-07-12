@@ -89,7 +89,7 @@ clear = "clear"
 exit = "exit"
 
 w = sleep(0.5)
-
+os.system("sudo apt -y install iptables")
 os.system("sudo apt -y install driftnet")
 os.system("sudo apt -y install sslstrip")
 os.system("sudo apt -y install bettercap")
