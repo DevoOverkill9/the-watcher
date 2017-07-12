@@ -50,7 +50,7 @@ try:
 		print("{0}[{1}+{0}]{2}Terms & Conditions has been accepted!").format(WHITE , OKGREEN , OKBLUE)
 		print("\n{0}[{1}*{0}]{2}Launching...".format(WHITE , OKGREEN , WARNING))
 		sleep(0.5)
-	elif terms == "n" or "N":
+	if terms == "n" or "N":
 		print("{0}[{1}x{0}]{2}Sorry you can't continue if you don't accept our terms!").format(WHITE , RED , FAIL)
 		sys.exit(0)
 	else:
