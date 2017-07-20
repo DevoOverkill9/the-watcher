@@ -95,6 +95,7 @@ os.system("sudo apt -y install sslstrip")
 os.system("sudo apt -y install bettercap")
 os.system("sudo apt -y install hping3")
 os.system("sudo apt -y install python-pip")
+os.system("sudo apt -y install netdiscover")
 os.system ("clear")
 
 #Terms & Conditions>
@@ -201,11 +202,21 @@ try:
 			print ("\n{0}[{1}*{0}]{2}Scanning targets in progress...").format(WHITE , RED , Cafe)
 			print
 			#using python-nmap
+			#TODO:Show the mac address [+]
+			"""
+				
 			nm = nmap.PortScanner()
 			nm.scan(hosts = gateway_ip+"/24", arguments='-sP')
 			hosts_list = [(x, nm[x]['status']['state']) for x in nm.all_hosts()]
 			for host, status in hosts_list:
-    				print('{3}{0} : {2}{1}'.format(host, status , OKGREEN , Cafe))
+    				print('{3}{0} : {2}{1} > {4}'.format(host, status , OKGREEN , Cafe , macaddress))
+			
+			"""
+			try:
+			    os.system("netdiscover")
+			except KeyboardInterrupt:
+			    pass	
+			
 		if host_scaning == "exit":
 			sys.exit("\n{}Thanks for stopping by :)".format(Cafe))
 		if host_scaning == "n":
