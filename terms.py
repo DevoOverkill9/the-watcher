@@ -46,13 +46,10 @@ print("\n{0}>{1}Do you accept these terms & conditions? {2}({3}y{4}/{5}n{2}) {0}
 try:
 	print ("{}").format(BLUE)
 	terms = raw_input("\nThe WATCHER > ")
-	if terms == "y" or "Y":
+	if terms == "y":
 		print("{0}[{1}+{0}]{2}Terms & Conditions has been accepted!").format(WHITE , OKGREEN , OKBLUE)
 		print("\n{0}[{1}*{0}]{2}Launching...".format(WHITE , OKGREEN , WARNING))
 		sleep(0.5)
-	elif terms == "n" or "N":
-		print("{0}[{1}x{0}]{2}Sorry you can't continue if you don't accept our terms!").format(WHITE , RED , FAIL)
-		sys.exit(0)
 	else:
 		print ("\n{}[x]Wrong Entry").format(FAIL)
 		sys.exit(0)
