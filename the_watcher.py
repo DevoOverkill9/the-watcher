@@ -116,16 +116,6 @@ except ImportError:
 	sys.exit(0)
 
 
-
-#installing python-nmap
-try:
-	os.system("sudo pip install python-nmap")
-except IOError:
-	sys.exit("{}[x]Something went wrong\nHint:make sure that you have an internet connection!".format(FAIL))
-except KeyboardInterrupt:
-	sys.exit("{}[x]Loading some tools has been interupted!\nHint:some tools need to installed first before continue using this tool!".format(FAIL))
-print
-
 #loading...
 print ("{}").format(Cafe)
 try:
@@ -146,23 +136,9 @@ except KeyboardInterrupt:
 	print("{0}[{1}x{0}]{2}Loading Interrupted!").format(Cafe , RED , RED)
 	sys.exit(0)
 print ("{0}[{1}+{0}]{2}OK!").format(WHITE , OKGREEN , OKGREEN)
-#nmap can't install Error
-try :
-	import nmap
-except ImportError :
-	print ("\n{}[x]If you a got an error :").format(RED) 
-	print("\n>Try : pip install python-nmap")
-	print("\nThen relaunch the tool!")
-	sys.exit(0)
 
 try:
-	print """
-	"""
 	sleep(0.5)
-	#Redirecting Traffic to the client >>
-	#print ("\n{0}Do you want to get network traffic now? ({1}y{0}/{2}n{0}) : ").format(OKGREEN , WHITE , RED)
-	#print ("{}").format(BLUE)
-	#traffic = raw_input("\nThe WATCHER > ")
 
 	if True:
 		
@@ -202,19 +178,9 @@ try:
 			sleep (0.2)
 			print ("\n{0}[{1}*{0}]{2}Scanning targets in progress...").format(WHITE , RED , Cafe)
 			print
-			#using python-nmap
-			#TODO:Show the mac address [+]
-			"""
-				
-			nm = nmap.PortScanner()
-			nm.scan(hosts = gateway_ip+"/24", arguments='-sP')
-			hosts_list = [(x, nm[x]['status']['state']) for x in nm.all_hosts()]
-			for host, status in hosts_list:
-    				print('{3}{0} : {2}{1} > {4}'.format(host, status , OKGREEN , Cafe , macaddress))
 			
-			"""
 			try:
-			    os.system("netdiscover")
+			    os.system("netdiscover -r {0}/24".format(gateway_ip))
 			except KeyboardInterrupt:
 			    pass	
 			
@@ -449,7 +415,7 @@ try:
 				return (choices())
 
 
-			elif client_choice == "0":
+			elif client_choice == "0" or "00":
 				print ("\n{0}[{1}+{0}]{2}Friendly Exiting..".format(RED , WHITE , Cafe))
 				sleep (0.5)
 				print ("\n{}Thanks for stopping by :)".format(Cafe))
